@@ -82,6 +82,10 @@ try{
  — 设置值 ref = '自定义的值'
  — 取值通过this.$refs.自定义的值
 
+ ### 十三） 单页应用的原理 （hash history）
+ - hash  hashchange 函数
+ - history history.pushState({},null,'/a')改变url不刷新页面 改变的方法 popstate
+
 
 ## 二、流程
 ### 一） 项目的目录结构
