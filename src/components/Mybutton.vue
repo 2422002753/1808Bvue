@@ -1,20 +1,18 @@
 <template>
-    <div>
-        <button @click="ck">{{msg}}</button>
-    </div>
+  <button @click="ck">{{msg}}</button>
 </template>
-
 <script>
 export default {
-    data() {
-        return {
-            msg:"这是按钮"
-        }
-    },
-    methods: {
-        ck(){
-            console.log("1234")
-        }
-    },
-}
+  data() {
+    return {
+      msg: "我的按钮"
+    };
+  },
+  methods: {
+    ck() {
+      console.log("1234");
+    }
+  }
+};
 </script>
+

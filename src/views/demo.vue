@@ -1,20 +1,21 @@
 <template>
-    <div>
-        演示refs用的组件
-        <Mybutton ref="btn"></Mybutton>
-    </div>
+  <div>
+    组件refs的基本用法
+    <Mybutton ref="btn"></Mybutton>
+  </div>
 </template>
 <script>
-import Mybutton from '../components/Mybutton'
+import Mybutton from "../components/Mybutton";
 export default {
-    components:{
-        Mybutton
-    },
-    mounted() {
-        let btn = this.$refs.btn;
-        btn.msg = "按钮1" //一般用不到
-        console.log(btn.msg);
-        this.$refs.btn.ck();
-    },
-}
+  components: {
+    Mybutton
+  },
+  mounted() {
+    let btn = this.$refs.btn;
+    btn.msg = "按钮1"; // 改值很少使用
+    console.log(btn);
+    this.$refs.btn.ck();
+  }
+};
 </script>
+

@@ -1,21 +1,25 @@
 <template>
-  <div>
-    <van-list
-      v-model="loading"
-      :finished="finished"
-      finished-text="没有更多了"
-      :immediate-check="false"
-      :error.sync="error"
-      error-text="请求失败，点击重新加载"
-      @load="onLoad"
-    >
-      <div v-for="item in list" :key="item.id">
-        <van-card :price="item.price" :desc="item.info" :title="item.name" :thumb="item.img" />
+  <div class="container">
+    <van-list v-model="loading"
+              :finished="finished"
+              finished-text="没有更多了"
+              :error.sync="error"
+              error-text="请求失败，点击重新加载"
+            
+              @load="onLoad">
+      <div v-for="item in list"
+           :key="item.id">
+        <router-link :to="{name:'detail',query:{id:item.id}}"
+                     tag="div">
+          <van-card :price="item.price"
+                    :desc="item.info"
+                    :title="item.name"
+                    :thumb="item.img" />
+        </router-link>
       </div>
     </van-list>
   </div>
 </template>
-
 <script>
 import { getPage } from "../api";
 export default {
@@ -26,29 +30,29 @@ export default {
       finished: false,
       page: 1,
       hasMore: true,
-      error:true
+      error: false
     };
   },
   created() {
     this.getL();
   },
-
   methods: {
     async getL() {
-        try{
-            let { list, hasMore } = await getPage(this.page);
-      this.list = [...this.list, ...list];
-      this.hasMore = hasMore;
-      if (this.hasMore == false) {
-        //   数据加载完成
-        this.finished = true;
-        //   加载状态结束
-        this.loading = false;
-      }
-        } catch(e){
-            this. error = true;
+      try {
+        let { list, hasMore } = await getPage(this.page);
+        this.list = [...this.list, ...list];
+        this.hasMore = hasMore;
+        if (this.hasMore == false) {
+          //数据加载完成
+          this.finished = true;
+          // 加载状态结束
+          this.loading = false;
         }
-      
+      } catch (e) {
+        this.error = true;
+      }
+
+      //console.log(this.hasMore);
     },
     loadmore() {
       this.page = this.page + 1;

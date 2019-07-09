@@ -76,15 +76,39 @@ try{
 ### 十一） Pomise.all => axios.all  
 - 用法：所有的promise成功之后才会走all里面的成功  
 - 好处：多个请求完成之后把数据集合到一起 
- ### 十二）vue取原生DOM
- 1. 通过this.$el
- 2. 通过refs (放在原生dom取的就是dom，放在组件上取的就是组件)
- — 设置值 ref = '自定义的值'
- — 取值通过this.$refs.自定义的值
+### 十二） vue取原生dom 
+ 1. 通过this.$el 
+ 2. 通过refs(放在原生dom取的就是dom,放在组件上取的就是组件) 
+  - 设置值 ref = '自定义的值'
+  - 取值通过this.$refs.自定义的值 
+### 十三) 单页应用的原理（hash history）（掌握）
+- hash 改变的方法 hashchange 函数 
+- history history.pushState({},null,'/a') 改变url不刷新页面 改变的方法 popstate   
+### 十四） 路由跳转
+- router-link tag 属性 把a标签转化成其他标签 
+- 路由跳转的方式 router-link   this.$router.push() 
+1. 参数为params的跳转方式 
+    1)直接拼接路径  :to='{ path: `/detail/${item.id}`}' 只能通过path 
+    2)直接写params参数  :to="{name:'detail',params:{id:item.id}}" 
+    只能通过name 
+    - 写parmas跳转的时候路由必须接受参数通过:/
+    -  用/:id  表示不固定但是必须有 多个/:id/:name 
+    - this.$route.params 
+2. 参数为query的跳转方式
+```js
+ :to="{name:'detail',query:{id:item.id}}"
+ :to="{path:'/detail',query:{id:item.id}}"
+```
+- query取值 this.$router.query 
+- 既可以用name也可以用path
+- 用query的时候路由不在需要任何处理
+- 作业：总结query和params的区别(电子版)
+  
+### 十五) $router 和$route
+1) $router 表示路由的实例 方法（push,go）
+2）$route 表示的路由的信息 属性(params,query)
 
- ### 十三） 单页应用的原理 （hash history）
- - hash  hashchange 函数
- - history history.pushState({},null,'/a')改变url不刷新页面 改变的方法 popstate
+
 
 
 ## 二、流程
@@ -148,19 +172,13 @@ import 'vant/lib/index.css';
 Vue.use(Vant);
 ```
 ### 滚动加载更多
-页面滚动到底部的条件
-scrollTop + scrollHegiht > clientHeight
-
+- 页面滚动到底部的条件:scrollTop + clientHeight > scollHeight 
 ### loadash的使用
 ```js
 npm install loadash
-   // main.js
-   import _ from 'loadash'
-```
-
-
-
-
+ //main.js 
+ import _ from 'loadash'  
+```  
 ## 三、mock接口
  1) 和src同级建立mock（独立）文件夹(放在其他处也可以) mock(放mock数据) mock里面 建app.js(服务器)  banner.js（轮播图图片）  list.json（商品列表）
  2) express 使用 
@@ -193,8 +211,6 @@ npm install loadash
 前端   -->  请求数据 ->服务端  
 axios.get('http://localhost:3000/banner')
 axios.get('www.baidu.com/banner')
-
-
 ## mock 接口  vue.config.js配置数据 
  1. 跟目录下面建立vue.config.js  
  2. vue.config 配置数据 需要改动的时候重新启动 npm run serve 
