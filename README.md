@@ -102,14 +102,14 @@ try{
 - query取值 this.$router.query 
 - 既可以用name也可以用path
 - 用query的时候路由不在需要任何处理
-- 作业：总结query和params的区别(电子版)
+- 1 作业：总结query和params的区别(电子版)
+- 2 作业：详情 请求怎么写（拿是是谁的详情） 
   
 ### 十五) $router 和$route
 1) $router 表示路由的实例 方法（push,go）
 2）$route 表示的路由的信息 属性(params,query)
-
-
-
+### 十六) 在 template 模板  
+ - 在template里面只允许有一个最外层的元素 
 
 ## 二、流程
 ### 一） 项目的目录结构
@@ -179,7 +179,8 @@ npm install loadash
  //main.js 
  import _ from 'loadash'  
 ```  
-## 三、mock接口
+## 三、mock接口 
+ - nodemon  自动重启node  npm install nodemon -g 
  1) 和src同级建立mock（独立）文件夹(放在其他处也可以) mock(放mock数据) mock里面 建app.js(服务器)  banner.js（轮播图图片）  list.json（商品列表）
  2) express 使用 
  - npm install express 下载express (vue-cli创建项目里面不用下，因为vue-cli是基于webpack的，webpack自带了express)
@@ -204,6 +205,11 @@ npm install loadash
  localhost:3000/listapi/page=1 第一页
  localhost:3000/listapi/page=2 第二页
  localhost:3000/listapi/page=3 第三页 
+ 4) 详情页接口  localhost:3000/detail
+ ``` js
+    axios.get(`/detail?id=${id}`)
+ ```
+ 
  
  
 ##前端 服务端
@@ -235,3 +241,27 @@ localhost:8080 -> http://192.168.8.100:3000
 
 访问网页 dns解析  ping www.baidu.com -> 112.80.248.75:80
 面试题：一个网页打开到显示的流程 (作业)总结出来 纸质版 
+
+- 页面 ->奥特曼 机器猫
+- 组件 -->零件-->负责一个功能   
+
+
+ 
+     
+
+
+
+
+
+
+  
+
+
+
+
+​       
+
+
+
+
+

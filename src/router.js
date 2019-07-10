@@ -15,6 +15,11 @@ export default new Router({
       component: () => import('./views/Demo.vue'),
     },
     {
+      path: '/demo1',
+      name: 'demo1',
+      component: () => import('./views/Demo1.vue'),
+    },
+    {
       path: '/vant',
       name: 'vant',
       component: () => import('./views/Vant.vue'),
@@ -30,7 +35,7 @@ export default new Router({
       component: () => import('./views/List1.vue'),
     },
     {
-      path: '/detail',
+      path: '/detail/:id',
       name: 'detail',
       component: () => import('./views/Detail.vue'),
     },
