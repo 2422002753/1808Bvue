@@ -14,6 +14,9 @@ app.listen(3000); // 服务器端口号
 app.use(cors());
 // 轮播图接口 访问地址:localhost:3000/banner
 const banner = require('./banner');
+app.get('/banner',(req,res) =>{
+  res.json({code:200,banner});
+})
 
 app.get('/banner', (req, res) => {
   res.json({ code: 200, banner });

@@ -1,12 +1,13 @@
 <template>
   <div>
-    <div class="container">
-      <Banner   :swiperSlides="slider" />
+    <div v-if="showloading" class="loading">
+      <van-loading type="spinner" color="blue" size="50px" vertical>加载中...</van-loading>
+    </div>
+    <div class="container" v-else>
+      <Banner :swiperSlides="slider" />
       <ul class="homelist">
-        <li v-for="item in homelist"
-            :key="item.id">
-          <img :src="item.img"
-               alt="">
+        <li v-for="item in homelist" :key="item.id">
+          <img :src="item.img" alt />
           <p>{{item.name}}</p>
         </li>
       </ul>
@@ -27,7 +28,8 @@ export default {
   data() {
     return {
       slider: [],
-      homelist: []
+      homelist: [],
+      showloading: true
     };
   },
   components: {
@@ -38,6 +40,10 @@ export default {
       let [{ banner }, { list }] = await getHomeAll();
       this.slider = banner;
       this.homelist = list;
+      // setTimout 只是为了模拟网速慢，写项目时候不用写
+      setTimeout(() => {
+        this.showloading = false;
+      }, 1000);
       //let res = await getHomeAll();
       //res = [{code:200,banner:[...]},{code:200,list:[...]}]
     }
@@ -45,6 +51,9 @@ export default {
 };
 </script>
 <style scoped>
+.loading{
+  padding-top: 40%
+}
 .homelist {
   width: 100%;
   display: flex;

@@ -1,5 +1,6 @@
 <template>
   <div class="goods">
+    <share :config="config"></share>
     <van-nav-bar
       title="详情"
       left-text="返回"
@@ -72,6 +73,17 @@ export default {
         //   "https://img.yzcdn.cn/public_files/2017/10/24/e5a5a02309a41f9f5def56684808d9ae.jpeg",
         //   "https://img.yzcdn.cn/public_files/2017/10/24/1791ba14088f9c2be8c610d0a6cc0f93.jpeg"
         // ]
+      },
+      config: {
+        disabled: [
+          "google",
+          "facebook",
+          "twitter",
+          "douban",
+          "weibo",
+          "diandian",
+          "linkedin"
+        ] // 禁用的站点
       }
     };
   },
@@ -104,6 +116,8 @@ export default {
 };
 </script>
 
+<style  src="../../node_modules/social-share.js/dist/css/share.min.css">
+</style>
 <style lang="less">
 .goods {
   position: fixed;

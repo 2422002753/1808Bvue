@@ -1,18 +1,10 @@
 <template>
-  <div class="container"
-       ref="scele"
-       @scroll="scmore">
-   <div v-for="item in list"
-         :key="item.id">
-      <van-card :price="item.price"
-                :desc="item.info"
-                :title="item.name"
-                :thumb="item.img" />
+  <div class="container" ref="scele" @scroll="scmore">
+    <div v-for="item in list" :key="item.id">
+      <van-card :price="item.price" :desc="item.info" :title="item.name" :thumb="item.img" />
     </div>
     <div class="btn-box">
-      <van-button type="primary"
-                  @click="loadmore">{{hasMore?"点击加载更多":"没有数据了"}}</van-button>
-
+      <van-button type="primary" @click="loadmore">{{hasMore?"点击加载更多":"没有数据了"}}</van-button>
     </div>
   </div>
 </template>
