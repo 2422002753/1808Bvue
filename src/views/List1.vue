@@ -26,7 +26,7 @@
 <script>
 import { getPage } from "../api";
 // @ 表示src下的绝对路径
-import HNav from "@/components/HNave";
+import HNav from "_c/HNave";
 
 export default {
   data() {

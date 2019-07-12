@@ -223,7 +223,13 @@ npm install loadash
 ```html
    <share :config="config"></share>
 ```
+### 项目打包
+ - 命令 npm run build
+ - 打包过后的项目只能在服务器访问
 
+ http-server使用
+ - npm install http-server -g
+ - 在文件夹目录运行http-server
 ## 三、mock接口 
  - nodemon  自动重启node  npm install nodemon -g 
  1) 和src同级建立mock（独立）文件夹(放在其他处也可以) mock(放mock数据) mock里面 建app.js(服务器)  banner.js（轮播图图片）  list.json（商品列表）

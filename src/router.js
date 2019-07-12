@@ -7,7 +7,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: () => import('./views/Home.vue'),
+      component: () => import('_v/Home.vue'),
       meta:{
         keepalive:true
       }

@@ -93,7 +93,7 @@ export default {
     share() {},
     // 返回
     goback() {
-      this.$router.push("/list1");
+      this.$router.push("/list");
     },
     formatPrice(price) {
       return (price / 100).toFixed(2);
