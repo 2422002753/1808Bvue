@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h-nav>购物车</h-nav>
     <van-nav-bar
       title="详情"
       left-text="返回"
@@ -30,8 +31,11 @@
 
 <script>
 import { Checkbox, CheckboxGroup, Card, SubmitBar, Toast } from "vant";
+import HNav from '../components/HNave';
+
 export default {
   components: {
+    HNav,
     [Card.name]: Card,
     [Checkbox.name]: Checkbox,
     [SubmitBar.name]: SubmitBar,

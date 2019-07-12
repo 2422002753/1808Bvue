@@ -1,20 +1,23 @@
 <template>
   <div class="container">
-    <van-list v-model="loading"
-              :finished="finished"
-              finished-text="没有更多了"
-              :error.sync="error"
-              error-text="请求失败，点击重新加载"
-              :immediate-check="false"
-              @load="onLoad">
-      <div v-for="item in list"
-           :key="item.id">
-        <router-link :to="{name:'detail',params:{id:item.id}}"
-                     tag="div">
-          <van-card :price="item.price"
-                    :desc="item.info"
-                    :title="item.name"
-                    :thumb="item.img" />
+    <HNav>
+      列表
+      <!-- <template #hr>
+        <h2>我的</h2>
+      </template> -->
+    </HNav>
+    <van-list
+      v-model="loading"
+      :finished="finished"
+      finished-text="没有更多了"
+      :error.sync="error"
+      error-text="请求失败，点击重新加载"
+      :immediate-check="false"
+      @load="onLoad"
+    >
+      <div v-for="item in list" :key="item.id">
+        <router-link :to="{name:'detail',params:{id:item.id}}" tag="div">
+          <van-card :price="item.price" :desc="item.info" :title="item.name" :thumb="item.img" />
         </router-link>
       </div>
     </van-list>
@@ -22,6 +25,9 @@
 </template>
 <script>
 import { getPage } from "../api";
+// @ 表示src下的绝对路径
+import HNav from "@/components/HNave";
+
 export default {
   data() {
     return {
@@ -32,6 +38,9 @@ export default {
       hasMore: true,
       error: false
     };
+  },
+  components: {
+    HNav
   },
   created() {
     this.getL();

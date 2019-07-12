@@ -1,6 +1,6 @@
 <template>
   <div class="container" ref="scele" @scroll="scmore">
-    <div v-for="item in list" :key="item.id">
+    <div v-for="item in list" :key="item.id" @click.stop="toDetail(item)">
       <van-card :price="item.price" :desc="item.info" :title="item.name" :thumb="item.img" />
     </div>
     <div class="btn-box">
@@ -23,6 +23,10 @@ export default {
   },
   mounted() {},
   methods: {
+    // 跳转到详情页
+    toDetail(item) {
+      this.$router.push({ name: "detail", params: { id: item.id } });
+    },
     scmore() {
       clearTimeout(this.timer);
       //节流和防抖 节流(性能优化)

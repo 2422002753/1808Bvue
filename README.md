@@ -116,6 +116,20 @@ v-if和v-show的区别
  - v-show displaya:none 用来频繁切换
  - v-if dom操作，隐藏的话dom是没有这个元素的
 
+### 十八）插槽 slot (了解)
+ - 通过slot可以往组件里面放东西 不写任何东西叫做默认插槽
+ - 命名插槽 slotname="hr" 使用时需要用template name对象的是template的#hr
+### 十九） vue-cli里面支持下面的写法
+ - vue 里面组件名字的写法 驼峰命名的可以直接转成中划线写法
+               - MobileNav -> mobile-nav 
+### 二十)防止事件冒泡到上级
+ - 在事件名后面加 .stop
+
+### 二十一)缓存组件 keep-alive组件
+- 目的： 减少请求，做缓存，节约性能
+- router-view 路由的视图
+- 路由元信息 meta：{} meta后面的对象可以放自定义属性 routers.js 下面的每个路由
+- $router.meta.自定义属性名
 
 ### 路由)
 ```js
@@ -276,6 +290,8 @@ localhost:8080 -> http://192.168.8.100:3000
 - 页面 ->奥特曼 机器猫
 - 组件 -->零件-->负责一个功能   
 
+组件对应(讲课的组件对象)
+ -  refs     views/Demo.vue
 
  
      
